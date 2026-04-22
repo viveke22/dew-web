@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DewDB | The API-First NoSQL Database</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; }
+        .code-font { font-family: 'Fira Code', monospace; }
+        .gradient-text {
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="text-slate-200 antialiased">
+
+    <nav class="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto">
+        <div class="text-2xl font-bold tracking-tighter flex items-center gap-2">
+            <div class="w-8 h-8 bg-sky-500 rounded-lg flex items-center justify-center italic text-white">D</div>
+            DewDB
+        </div>
+        <div class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
+            <a href="#features" class="hover:text-sky-400 transition">Features</a>
+            <a href="#docs" class="hover:text-sky-400 transition">Docs</a>
+            <a href="https://github.com" class="hover:text-sky-400 transition">GitHub</a>
+        </div>
+        <button class="bg-sky-500 hover:bg-sky-400 text-white px-5 py-2 rounded-full text-sm font-semibold transition">
+            Get Started
+        </button>
+    </nav>
+
+    <header class="max-w-7xl mx-auto px-8 pt-20 pb-32 text-center">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+            The Database is <span class="gradient-text">the API.</span>
+        </h1>
+        <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+            A lightweight, distributed NoSQL database built in Rust. 
+            No complex query languages—just high-performance, native REST endpoints for your data.
+        </p>
+        <div class="flex flex-col md:flex-row justify-center gap-4 mb-20">
+            <button class="bg-white text-slate-900 px-8 py-4 rounded-xl font-bold hover:bg-slate-200 transition shadow-lg shadow-sky-500/10">
+                Install DewDB
+            </button>
+            <button class="glass px-8 py-4 rounded-xl font-bold hover:bg-white/5 transition">
+                Read Documentation
+            </button>
+        </div>
+
+        <div class="max-w-3xl mx-auto glass rounded-2xl overflow-hidden shadow-2xl text-left border border-white/5">
+            <div class="bg-slate-800/50 px-4 py-3 border-b border-white/5 flex gap-2">
+                <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+            </div>
+            <div class="p-6 code-font text-sm leading-relaxed overflow-x-auto">
+                <p class="text-slate-500 mb-2"># Create a new document in the 'users' collection</p>
+                <p><span class="text-pink-400">curl</span> -X POST https://api.dewdb.io/v1/users \</p>
+                <p class="ml-4">-H <span class="text-emerald-400">"Content-Type: application/json"</span> \</p>
+                <p class="ml-4">-d <span class="text-emerald-400">'{"name": "Alice", "role": "admin"}'</span></p>
+                <br>
+                <p class="text-slate-500">// Output: 201 Created</p>
+                <p class="text-sky-300">{"id": "dw_8y2k1", "status": "indexed"}</p>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="max-w-7xl mx-auto px-8 py-24 border-t border-white/5">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="space-y-4">
+                <div class="w-12 h-12 bg-sky-500/10 rounded-lg flex items-center justify-center text-sky-400 text-xl">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3 class="text-xl font-bold">Rust Powered</h3>
+                <p class="text-slate-400 leading-relaxed">Built with the safety and speed of Rust. Zero garbage collection and ultra-low latency for every request.</p>
+            </div>
+            <div class="space-y-4">
+                <div class="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center text-indigo-400 text-xl">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <h3 class="text-xl font-bold">Distributed Architecture</h3>
+                <p class="text-slate-400 leading-relaxed">Scale horizontally by adding nodes. DewDB handles data replication and partitioning natively.</p>
+            </div>
+            <div class="space-y-4">
+                <div class="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center text-emerald-400 text-xl">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3 class="text-xl font-bold">Zero-Query Lang</h3>
+                <p class="text-slate-400 leading-relaxed">Forget learning proprietary syntax. Standard HTTP methods (GET, POST, DELETE) are all you need.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="max-w-7xl mx-auto px-8 py-12 border-t border-white/5 text-center text-slate-500 text-sm">
+        <p>&copy; 2026 DewDB Project. Built for the modern developer.</p>
+    </footer>
+
+</body>
+</html>
